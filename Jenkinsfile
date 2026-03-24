@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh """
+                sh """ 
                 export KUBECONFIG=/home/ubuntu/.kube/config
                 kubectl apply -f deployment-service.yml
                 """
