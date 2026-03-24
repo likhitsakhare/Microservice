@@ -4,13 +4,19 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh "kubectl apply -f deployment-service.yml"
+                sh """
+                export KUBECONFIG=/home/ubuntu/.kube/config
+                kubectl apply -f deployment-service.yml
+                """
             }
         }
         
         stage('Verify Deployment') {
             steps {
-                sh "kubectl get svc -n webapps"
+                sh """
+                export KUBECONFIG=/home/ubuntu/.kube/config
+                kubectl get svc -n webapps
+                """
             }
         }
     }
