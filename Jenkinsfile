@@ -8,7 +8,7 @@ pipeline {
                 kubectl apply -f deployment-service.yml
                 """
             }
-        }
+        }  
         
         stage('Verify Deployment') {
             steps {
